@@ -5,6 +5,9 @@
   "main": "gulpfile.js",
   "author": "infinityAlive",
   "license": "ISC",
+  "scripts": {
+    "test": "echo ad-hswriting"
+  },
   "devDependencies": {
     "del": "^3.0.0",
     "gulp": "^3.9.1",
