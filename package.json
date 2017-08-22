@@ -1,0 +1,19 @@
+{
+  "name": "ad-hswriting",
+  "version": "0.0.1",
+  "description": "ad hswriting by ehanlin",
+  "main": "gulpfile.js",
+  "author": "infinityAlive",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-template-util": "0.0.2",
+    "gulp-uglify": "^3.0.0",
+    "imagemin-pngquant": "^5.0.1",
+    "q": "^1.5.0"
+  }
+}

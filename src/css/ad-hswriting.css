@@ -1,0 +1,34 @@
+body {
+  background: #66ffff;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+img.banner {
+  display: block;
+  margin: 0 auto;
+}
+
+.picture {
+  position: relative;
+}
+
+.picture .button {
+  position: absolute;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.logo-link {
+  top: 10px;
+  left: 50px;
+  display: block;
+  width: 405px;
+  height: 65px;
+  position: absolute;
+}
