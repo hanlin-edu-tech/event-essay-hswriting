@@ -3,8 +3,6 @@ $(function() {
     var rootPath = $("#rootPath").data("value");
     var popupImage = $(this).data("popup");
     var popupImagePath = rootPath + popupImage.replace(".", "");
-    console.log(popupImagePath);
-
     $.blockUI({
       message: '<img width="100%" src="' + popupImagePath + '">',
       css: {
