@@ -7,6 +7,7 @@ contentTypeJson="Content-Type: application/json"
 case "${TRAVIS_TAG}" in
 *SNAPSHOT*)
 	echo "deploy to test"
+	#curl -X POST -H 'Content-Type: application/json' -d "{\"Repository\":\"event-ad-hswriting\",\"Tag\":\"${TRAVIS_TAG}\",\"Owner\":\"eHanlin\",\"Password\":\"${EHANLIN_PW}\",\"Name\":\"ad-hswriting\"}" 'http://www.ehanlin.com.tw/event/api/Deploy'
 	curl -X POST -H "${contentTypeJson}" -d "${repository}" "${test}"
 	;;
 *)
