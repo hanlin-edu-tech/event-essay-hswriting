@@ -11,7 +11,6 @@ case "${TRAVIS_TAG}" in
 	;;
 *)
 	echo "deploy to production"
-	node changeToProduction.js
 	curl -X POST -H "${contentTypeJson}" -d "${repository}" "${production}"
 	;;
 esac
