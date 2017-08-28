@@ -2,7 +2,6 @@ const FS = require("fs");
 const PATH = require("path");
 const DIR = `${__dirname}/dist/`;
 
-console.log(DIR);
 FS.readdir(DIR, (err, files) => {
   var writeToFile = fileContent => {
     FS.writeFile(entireFilePath, fileContent, "UTF-8", err => {
@@ -26,7 +25,6 @@ FS.readdir(DIR, (err, files) => {
 
   files.forEach(fileName => {
     if (/(.html)$/.test(fileName)) {
-      console.log("GG");
       entireFilePath = PATH.join(DIR, fileName);
       changeToCurrent();
     }
