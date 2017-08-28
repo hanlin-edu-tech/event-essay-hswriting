@@ -70,7 +70,7 @@ gulp.task("package", () => {
     return templateUtil.logPromise(clean(dist));
   })
     .then(function() {
-      return Q.all([templateUtil.logStream(copyStaticFile())]);
+      return templateUtil.logStream(copyStaticFile());
     })
     .then(function() {
       return Q.all([
