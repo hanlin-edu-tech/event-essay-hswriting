@@ -1,12 +1,12 @@
 {
-  "name": "ad-hswriting",
-  "version": "0.0.1",
-  "description": "ad hswriting by ehanlin",
+  "name": "essay-hswriting",
+  "version": "0.1.1",
+  "description": "essay hswriting by ehanlin",
   "main": "gulpfile.js",
   "author": "infinityAlive",
   "license": "ISC",
   "scripts": {
-    "test": "echo ad-hswriting"
+    "test": "echo essay-hswriting"
   },
   "devDependencies": {
     "del": "^3.0.0",
