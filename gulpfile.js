@@ -4,11 +4,57 @@ var pngquant = require("imagemin-pngquant");
 var cleanCSS = require("gulp-clean-css");
 var uglify = require("gulp-uglify");
 var templateUtil = require("gulp-template-util");
+var path = require("path");
+var fs = require("fs");
+var readline = require("readline");
 var del = require("del");
 var Q = require("q");
-
 var basePath = { base: "src" };
 var dist = "dist";
+
+var determineDeployProduction = () => {
+  var replaceToProduction = () => {
+    fs.readdir(destinationDir, (err, files) => {
+      var writeToFile = fileContent => {
+        fs.writeFile(entireFilePath, fileContent, "UTF-8", err => {
+          if (err) throw err;
+          console.log("The html file was succesfully saved!");
+        });
+      };
+
+      var changeToCurrent = () => {
+        fs.readFile(entireFilePath, "UTF-8", function(err, data) {
+          if (err) throw err;
+          if (data.includes("current.SNAPSHOT")) {
+            var fileContent = data.replace(/current\.SNAPSHOT/g, "current");
+            writeToFile(fileContent);
+          }
+        });
+      };
+      var entireFilePath;
+      if (err) throw err;
+      files.forEach(fileName => {
+        if (/(.html)$/.test(fileName)) {
+          entireFilePath = path.join(destinationDir, fileName);
+          changeToCurrent();
+        }
+      });
+    });
+  };
+
+  var destinationDir = `${__dirname}/dist/`;
+  var prompts = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+  var isDeploy;
+  prompts.question("是否部署至正式機 (如果是則輸入 Y) = ", function(input) {
+    if (input === "Y") {
+      replaceToProduction();
+    }
+    prompts.close();
+  });
+};
 
 var clean = sourceDir => {
   var task_clean = () => {
@@ -78,5 +124,8 @@ gulp.task("package", () => {
         templateUtil.logStream(minifyCSS("src/css/*.css")),
         templateUtil.logStream(minifyJS("src/js/*.js"))
       ]);
+    })
+    .then(function() {
+      return templateUtil.logPromise(determineDeployProduction);
     });
 });
