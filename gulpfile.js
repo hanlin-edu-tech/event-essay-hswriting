@@ -4,11 +4,11 @@ var pngquant = require("imagemin-pngquant");
 var cleanCSS = require("gulp-clean-css");
 var uglify = require("gulp-uglify");
 var templateUtil = require("gulp-template-util");
+var Q = require("q");
 var path = require("path");
 var fs = require("fs");
 var readline = require("readline");
 var del = require("del");
-var Q = require("q");
 var basePath = { base: "src" };
 var dist = "dist";
 
